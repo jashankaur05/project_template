@@ -1,0 +1,68 @@
+
+
+<div class="float-end">
+    <p-button label="Submit" (click)="show()"/>
+</div>
+<div class="row mt-5">
+    <p-table
+      #dataTable
+      [value]="employeeData"
+      class="table table-wrap table-striped table-hover"
+      [paginator]="true"
+      [rows]="5"
+      [rowsPerPageOptions]="[5, 10, 20]"
+      [globalFilterFields]="['employeeId', 'firstName', 'lastName', 'email', 'mobile']"
+    >
+      <!-- HEADER -->
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Employee ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Gender</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Date of Joining</th>
+          <th>Date of Leave</th>
+          <th>Date of Birth</th>
+          <th>Salary</th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+  
+      <!-- BODY -->
+      <ng-template pTemplate="body" let-rowData>
+        <tr>
+          <td>{{ rowData.employeeId }}</td>
+          <td>{{ rowData.firstName }}</td>
+          <td>{{ rowData.lastName }}</td>
+          <td>{{ rowData.gender }}</td>
+          <td>{{ rowData.email }}</td>
+          <td>{{ rowData.mobile }}</td>
+          <td>{{ rowData.dateOfJoining | date: 'yyyy-MM-dd' }}</td>
+          <td>{{ rowData.dateOfLeave | date: 'yyyy-MM-dd' }}</td>
+          <td>{{ rowData.dateOfBirth | date: 'yyyy-MM-dd' }}</td>
+          <td>{{ rowData.salary | currency }}</td>
+          <td>
+            <i
+              class="pi pi-pencil action-icon"
+              title="Edit Employee"
+            ></i>
+            <i
+              class="pi pi-trash action-icon text-danger"
+              title="Delete Employee"
+            ></i>
+          </td>
+        </tr>
+      </ng-template>
+  
+      <!-- EMPTY MESSAGE -->
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="11" style="text-align: center;">No records found.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  
+  

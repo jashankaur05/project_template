@@ -1,0 +1,118 @@
+<form [formGroup]="employeeForm" class="p-4" (ngSubmit)="submit()">
+    <div class="row">
+      <!-- Employee ID -->
+      <!-- <div class="col-6 mb-3">
+        <label for="employeeId" class="form-label">Employee ID<span class="text-danger">*</span></label>
+        <input formControlName="employeeId" id="employeeId" class="form-control" 
+               [ngClass]="{'is-invalid': employeeForm.get('employeeId')?.touched && employeeForm.get('employeeId')?.invalid}" 
+               placeholder="Enter Employee ID" />
+        <div *ngIf="employeeForm.get('employeeId')?.touched && employeeForm.get('employeeId')?.invalid" class="invalid-feedback">
+          Employee ID is required.
+        </div>
+      </div> -->
+  
+      <!-- First Name -->
+      <div class="col-6 mb-3">
+        <label for="firstName" class="form-label">First Name<span class="text-danger">*</span></label>
+        <input formControlName="firstName" id="firstName" class="form-control" 
+               [ngClass]="{'is-invalid': employeeForm.get('firstName')?.touched && employeeForm.get('firstName')?.invalid}" 
+               placeholder="Enter First Name" />
+        <div *ngIf="employeeForm.get('firstName')?.touched && employeeForm.get('firstName')?.invalid" class="invalid-feedback">
+          First Name is required.
+        </div>
+      </div>
+  
+      <!-- Last Name -->
+      <div class="col-6 mb-3">
+        <label for="lastName" class="form-label">Last Name<span class="text-danger">*</span></label>
+        <input formControlName="lastName" id="lastName" class="form-control" 
+               [ngClass]="{'is-invalid': employeeForm.get('lastName')?.touched && employeeForm.get('lastName')?.invalid}" 
+               placeholder="Enter Last Name" />
+        <div *ngIf="employeeForm.get('lastName')?.touched && employeeForm.get('lastName')?.invalid" class="invalid-feedback">
+          Last Name is required.
+        </div>
+      </div>
+  
+      <!-- Gender -->
+      <div class="col-6 mb-3">
+        <label class="form-label">Gender<span class="text-danger">*</span></label>
+        <div>
+          <div class="form-check form-check-inline">
+            <input type="radio" formControlName="gender" id="genderMale" value="Male" class="form-check-input" />
+            <label for="genderMale" class="form-check-label">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" formControlName="gender" id="genderFemale" value="Female" class="form-check-input" />
+            <label for="genderFemale" class="form-check-label">Female</label>
+          </div>
+        </div>
+        <div *ngIf="employeeForm.get('gender')?.touched && employeeForm.get('gender')?.invalid" class="invalid-feedback d-block">
+          Gender is required.
+        </div>
+      </div>
+  
+      <!-- Email -->
+      <div class="col-6 mb-3">
+        <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
+        <input type="email" formControlName="email" id="email" class="form-control" 
+               [ngClass]="{'is-invalid': employeeForm.get('email')?.touched && employeeForm.get('email')?.invalid}" 
+               placeholder="Enter Email" />
+        <div *ngIf="employeeForm.get('email')?.touched && employeeForm.get('email')?.invalid" class="invalid-feedback">
+          Valid email is required.
+        </div>
+      </div>
+  
+      <!-- Mobile -->
+      <div class="col-6 mb-3">
+        <label for="mobile" class="form-label">Mobile<span class="text-danger">*</span></label>
+        <input type="text" formControlName="mobile" id="mobile" class="form-control" 
+               [ngClass]="{'is-invalid': employeeForm.get('mobile')?.touched && employeeForm.get('mobile')?.invalid}" 
+               placeholder="Enter Mobile Number" />
+        <div *ngIf="employeeForm.get('mobile')?.touched && employeeForm.get('mobile')?.invalid" class="invalid-feedback">
+          Mobile number is required.
+        </div>
+      </div>
+  
+      <!-- Date of Joining -->
+      <div class="col-6 mb-3">
+        <label for="dateOfJoining" class="form-label">Date of Joining<span class="text-danger">*</span></label>
+        <input type="date" formControlName="dateOfJoining" id="dateOfJoining" class="form-control" 
+               [ngClass]="{'is-invalid': employeeForm.get('dateOfJoining')?.touched && employeeForm.get('dateOfJoining')?.invalid}" />
+        <div *ngIf="employeeForm.get('dateOfJoining')?.touched && employeeForm.get('dateOfJoining')?.invalid" class="invalid-feedback">
+          Date of joining is required.
+        </div>
+      </div>
+  
+      <!-- Date of Leave -->
+      <div class="col-6 mb-3">
+        <label for="dateOfLeave" class="form-label">Date of Leave</label>
+        <input type="date" formControlName="dateOfLeave" id="dateOfLeave" class="form-control" />
+      </div>
+  
+      <!-- Date of Birth -->
+      <div class="col-6 mb-3">
+        <label for="dateOfBirth" class="form-label">Date of Birth<span class="text-danger">*</span></label>
+        <input type="date" formControlName="dateOfBirth" id="dateOfBirth" class="form-control" 
+               [ngClass]="{'is-invalid': employeeForm.get('dateOfBirth')?.touched && employeeForm.get('dateOfBirth')?.invalid}" />
+        <div *ngIf="employeeForm.get('dateOfBirth')?.touched && employeeForm.get('dateOfBirth')?.invalid" class="invalid-feedback">
+          Date of birth is required.
+        </div>
+      </div>
+  
+      <!-- Salary -->
+      <div class="col-6 mb-3">
+        <label for="salary" class="form-label">Salary<span class="text-danger">*</span></label>
+        <input type="number" formControlName="salary" id="salary" class="form-control" 
+               [ngClass]="{'is-invalid': employeeForm.get('salary')?.touched && employeeForm.get('salary')?.invalid}" 
+               placeholder="Enter Salary" />
+        <div *ngIf="employeeForm.get('salary')?.touched && employeeForm.get('salary')?.invalid" class="invalid-feedback">
+          Salary is required.
+        </div>
+      </div>
+    </div>
+  <div class="float-end">
+    <button type="reset" class="btn btn-danger me-3" (click)="close()">Cancel</button>
+    <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+  </div>
+  </form>
+  

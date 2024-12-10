@@ -1,0 +1,25 @@
+<ngx-loading [show]="isLoading"></ngx-loading>
+<div class="row">
+    <div class="col-md-4 mt-3 d-flex">
+        Add Name
+    </div>
+    <div class="col-md-8 mt-3 d-flex justify-content-end">
+        <button type="reset" class="btn btn-danger me-3" (click)="close()">Cancel</button>
+        <button type="submit" class="btn btn-primary">{{ isEdit ? 'Update' : 'Save' }} Company</button>
+    </div>
+</div>
+
+<form [formGroup]="designationDetailsForm" class="p-4" (ngSubmit)="Submit()">
+    <div class="row">
+        <div class="col-12">
+            <label for="designationName" class="form-label">Designation Name<span class="text-danger">*</span></label>
+            <input formControlName="designationName" id="designationName" class="form-control"
+                [ngClass]="{ 'is-invalid': designationDetailsForm.get('designationName')?.touched && designationDetailsForm.get('designationName')?.invalid }"
+                placeholder="Enter Designation Name" />
+            <div *ngIf="designationDetailsForm.get('designationName')?.touched && designationDetailsForm.get('designationName')?.invalid"
+                class="invalid-feedback">
+                Company Bank Name is required.
+            </div>
+        </div>
+    </div>
+</form>
